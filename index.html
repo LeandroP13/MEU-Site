@@ -35,6 +35,31 @@
     };
   </script>
   <div id="mensagensContainer"></div>
+<!-- Firebase SDK -->
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<!-- Seu script deve vir depois! -->
+<script src="scripts.js" defer></script>
 
 </body>
+<script>
+  // CONFIGURAÇÃO DO SEU FIREBASE
+  const firebaseConfig = {
+  apiKey: "AIzaSyCajCOTL4F0QO-cyJJ5sWmFTs_EdbJIHL0",
+  authDomain: "meu-site-e7b96.firebaseapp.com",
+  databaseURL: "https://meu-site-e7b96-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "meu-site-e7b96",
+  storageBucket: "meu-site-e7b96.firebasestorage.app",
+  messagingSenderId: "133843181219",
+  appId: "1:133843181219:web:589950a7ffd36df92f2916",
+  measurementId: "G-RBM4SCB6VM"
+};
+
+  // Inicializar Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+</script>
 </html>
