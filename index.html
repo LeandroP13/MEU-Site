@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🏠Bem-vindo ao Nosso Mundo Mágico🏠</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="fotos.html">📸 Fotos</a></li>
+      <li><a href="historias.html">📖 Histórias e Cartas</a></li>
+      <li><a href="lista_tarefas.html">📝 Lista de Tarefas</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <h2>Nosso Espaço Especial</h2>
+      <p>Compartilha momentos e memórias inesquecíveis aqui. Curta cada segundo!</p>
+      <div class="icon">🌟</div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nosso Site. Todos os direitos reservados. 💖</p>
+  </footer>
+
+  <script>
+    // Efeito de transição de fundo ao rolar a página
+    window.onscroll = function() {
+      document.body.style.background = `linear-gradient(to right, #f0e6d2, #f9d29d ${Math.min(window.scrollY / 5, 100)}%)`;
+    };
+  </script>
+</body>
+</html>

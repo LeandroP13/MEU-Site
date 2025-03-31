@@ -1,0 +1,262 @@
+/* Estilos Comuns */
+
+/* Corpo */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f0e6d2, #f9d29d);
+  }
+  
+  /* Cabeçalho */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+  
+  /* Navegação */
+  nav {
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  nav ul li {
+    margin: 0 20px;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  nav ul li a:hover {
+    background-color: #ff9800;
+    transform: scale(1.1);
+  }
+  
+  /* Conteúdo Principal */
+  main {
+    flex: 1;
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Rodapé */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    letter-spacing: 1px;
+  }
+  
+  /* Estilos da Lista de Atividades */
+  .atividade {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .atividade:hover {
+    transform: scale(1.05);
+    background-color: #FFFAF0;
+  }
+  
+  .atividade input[type="checkbox"] {
+    transform: scale(1.6);
+    margin-right: 20px;
+  }
+  
+  .atividade .icon i {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .atividade .icon i:hover {
+    color: #ff9800;
+  }
+  
+  /* Estilos da Galeria de Fotos */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    padding: 20px;
+  }
+  
+  .gallery div {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .gallery div:hover {
+    transform: scale(1.05);
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos do Botão */
+  .btn {
+    background-color: #ff9800;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #333;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  /* Estilo para o campo de entrada de atividades */
+  #novaAtividade {
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  #novaAtividade:focus {
+    background-color: #FFFAF0;
+  }
+  
+  /* Esconder input de arquivo */
+  #fileInput {
+    display: none;
+  }
+  /* Media query para telas pequenas (smartphones) */
+@media only screen and (max-width: 600px) {
+    header {
+      padding: 10px;
+      text-align: left;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    /* Menu de navegação */
+    nav {
+      display: block;
+      text-align: center;
+    }
+  
+    nav a {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+  
+    /* Ajuste de layout de duas colunas */
+    .two-column {
+      display: block;
+    }
+  
+    .two-column div {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Media query para tablets */
+  @media only screen and (max-width: 768px) {
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .two-column div {
+      width: 48%;
+      margin-right: 4%;
+    }
+  
+    .two-column div:last-child {
+      margin-right: 0;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Media query para desktops grandes */
+  @media only screen and (min-width: 1200px) {
+    .two-column {
+      display: flex;
+    }
+  
+    .two-column div {
+      width: 48%;
+      margin-right: 4%;
+    }
+  
+    .two-column div:last-child {
+      margin-right: 0;
+    }
+  }

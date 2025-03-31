@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Atividades</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📝Lista de Atividades Futuras📝</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠 Início</a></li>
+      <li><a href="fotos.html">📸 Fotos</a></li>
+      <li><a href="historias.html">📖 Histórias</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <h2>Atividades a Fazer</h2>
+      <p>Liste as atividades que queremos fazer no futuro e marque-as conforme forem realizadas.</p>
+      <div id="listaAtividades"></div>
+      <input type="text" id="novaAtividade" placeholder="Adicionar nova atividade...">
+      <button class="btn" onclick="adicionarAtividade()">Adicionar Atividade</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nosso Site. Todos os direitos reservados.💖</p>
+  </footer>
+
+  <script>
+    function adicionarAtividade() {
+      let input = document.getElementById("novaAtividade");
+      let textoAtividade = input.value.trim();
+
+      if (textoAtividade === "") {
+        alert("Por favor, digite uma atividade.");
+        return;
+      }
+
+      let lista = document.getElementById("listaAtividades");
+
+      let divAtividade = document.createElement("div");
+      divAtividade.classList.add("atividade");
+
+      let iconDiv = document.createElement("div");
+      iconDiv.classList.add("icon");
+      let icon = document.createElement("i");
+      icon.classList.add("fas", "fa-check-circle");
+      iconDiv.appendChild(icon);
+
+      let checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      let spanTexto = document.createElement("span");
+      spanTexto.textContent = textoAtividade;
+
+      let botaoRemover = document.createElement("button");
+      botaoRemover.textContent = "Remover";
+      botaoRemover.classList.add("btn");
+      botaoRemover.onclick = function () {
+        lista.removeChild(divAtividade);
+        salvarAtividades();
+      };
+
+      divAtividade.appendChild(iconDiv);
+      divAtividade.appendChild(checkbox);
+      divAtividade.appendChild(spanTexto);
+      divAtividade.appendChild(botaoRemover);
+
+      lista.appendChild(divAtividade);
+
+      input.value = ""; // Limpar campo de entrada
+      salvarAtividades();
+    }
+
+    function salvarAtividades() {
+      let atividades = [];
+      document.querySelectorAll(".atividade span").forEach(span => {
+        atividades.push(span.textContent);
+      });
+      localStorage.setItem("atividades", JSON.stringify(atividades));
+    }
+
+    function carregarAtividades() {
+      let lista = document.getElementById("listaAtividades");
+      lista.innerHTML = ""; // Limpar a lista antes de carregar
+      let atividades = JSON.parse(localStorage.getItem("atividades")) || [];
+
+      atividades.forEach(texto => {
+        let divAtividade = document.createElement("div");
+        divAtividade.classList.add("atividade");
+
+        let iconDiv = document.createElement("div");
+        iconDiv.classList.add("icon");
+        let icon = document.createElement("i");
+        icon.classList.add("fas", "fa-check-circle");
+        iconDiv.appendChild(icon);
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        let spanTexto = document.createElement("span");
+        spanTexto.textContent = texto;
+
+        let botaoRemover = document.createElement("button");
+        botaoRemover.textContent = "Remover";
+        botaoRemover.classList.add("btn");
+        botaoRemover.onclick = function () {
+          lista.removeChild(divAtividade);
+          salvarAtividades();
+        };
+
+        divAtividade.appendChild(iconDiv);
+        divAtividade.appendChild(checkbox);
+        divAtividade.appendChild(spanTexto);
+        divAtividade.appendChild(botaoRemover);
+
+        lista.appendChild(divAtividade);
+      });
+    }
+
+    // Carregar atividades salvas ao carregar a página
+    window.onload = carregarAtividades;
+  </script>

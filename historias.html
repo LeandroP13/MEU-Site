@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos gerais */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #f0e6d2, #f9d29d);
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 2em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Navegação */
+nav {
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #ff9800;
+  transform: scale(1.1);
+}
+
+/* Conteúdo principal */
+main {
+  flex: 1;
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Rodapé */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+/* Estilização das atividades */
+.atividade {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.atividade:hover {
+  transform: scale(1.05);
+  background-color: #FFFAF0;
+}
+
+.atividade input[type="checkbox"] {
+  transform: scale(1.6);
+  margin-right: 20px;
+}
+
+.atividade .icon i {
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.atividade .icon i:hover {
+  color: #ff9800;
+}
+
+/* Botões */
+.btn {
+  background-color: #ff9800;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: white;
+  transform: scale(1.1);
+}
+
+#novaAtividade {
+  padding: 15px;
+  font-size: 1.1em;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 450px;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+#novaAtividade:focus {
+  background-color: #FFFAF0;
+}
+
+/* Efeitos de transição */
+.atividade, .btn {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para o textarea */
+textarea {
+  background: #fff;
+  border: 2px solid #444;
+  width: 75%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background: #ff9800;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+  background: black;
+  color: white;
+  transform: scale(1.1);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📖 Historias & Cartas 📖</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠 Início</a></li>
+      <li><a href="fotos.html">📸 Fotos</a></li>
+      <li><a href="lista_tarefas.html">📝 Lista de Tarefas</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <h2>Diário de Memórias</h2>
+      <p>Escreve os nossos momentos especiais e guarde-os para sempre!</p>
+      <textarea id="diarioTexto" placeholder="Escreva sua história..."></textarea><br>
+      <button onclick="salvarEntrada()">💾 Guardar</button>
+      <div id="entradasDiario"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nosso Site. Todos os direitos reservados. 💖</p>
+  </footer>
+  <script>
+    function salvarEntrada() {
+      const texto = document.getElementById('diarioTexto').value;
+      if (texto.trim() !== '') {
+        const dataHora = new Date().toLocaleString();
+        const entrada = { texto: texto, dataHora: dataHora };
+        let entradas = JSON.parse(localStorage.getItem('entradasDiario')) || [];
+        entradas.unshift(entrada);
+        localStorage.setItem('entradasDiario', JSON.stringify(entradas));
+        document.getElementById('diarioTexto').value = '';
+        exibirEntradas();
+      } else {
+        alert('Por favor, escreva algo antes de guardar.');
+      }
+    }
+    function exibirEntradas() {
+      const entradas = JSON.parse(localStorage.getItem('entradasDiario')) || [];
+      const container = document.getElementById('entradasDiario');
+      container.innerHTML = '';
+      entradas.forEach((entrada, index) => {
+        const div = document.createElement('div');
+        div.classList.add('entry');
+        div.innerHTML = `
+          <p>${entrada.texto.replace(/\n/g, '<br>')}</p>
+          <time>${entrada.dataHora}</time>
+          <button onclick="removerEntrada(${index})">🗑 Excluir</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+    function removerEntrada(index) {
+      const entradas = JSON.parse(localStorage.getItem('entradasDiario')) || [];
+      entradas.splice(index, 1);
+      localStorage.setItem('entradasDiario', JSON.stringify(entradas));
+      exibirEntradas();
+    }
+    window.onload = exibirEntradas;
+  </script>
+</body>
+</html>
