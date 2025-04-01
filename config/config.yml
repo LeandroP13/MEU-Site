@@ -1,1 +1,18 @@
+backend:
+  name: github
+  repo: LeandroP13/MEU-Site  # Substitua com o nome do seu repositório
+  branch: master  # Ou a branch que você está usando
+
+media_folder: "assets/images"  # A pasta onde as imagens serão armazenadas
+public_folder: "/assets/images"  # Caminho para imagens públicas no site
+
+collections:
+  - name: "posts"  # Nome da coleção de conteúdo
+    label: "Posts"
+    folder: "_posts"  # Pasta onde os arquivos de conteúdo serão armazenados
+    create: true  # Permite criar novos posts diretamente pelo CMS
+    fields:
+      - { label: "Title", name: "title", widget: "string" }  # Título do post
+      - { label: "Body", name: "body", widget: "markdown" }  # Corpo do post (em Markdown)
+      - { label: "Image", name: "image", widget: "image" }  # Imagem associada ao post
 
